@@ -1,0 +1,123 @@
+/* General Styles */
+#sales-operation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Customer Section */
+#customer-section {
+    margin: 20px 0;
+    width: 80%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+#customer-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#customer-section select {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#add-new-customer {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-new-customer:hover {
+    background-color: #0056b3;
+}
+
+#new-customer-fields {
+    margin-top: 10px;
+}
+
+#new-customer-fields input {
+    display: block;
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Product Search Section */
+#product-search-section {
+    margin: 20px 0;
+    width: 80%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+#product-search-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#product-search {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Available and Selected Products */
+#available-products .product-item,
+#selected-products .facture-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#available-products .product-item button,
+#selected-products .facture-item span {
+    margin-left: 10px;
+}
+
+/* Facture Section */
+#facture-section {
+    width: 80%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+#facture-section h2 {
+    margin-top: 0;
+}
+
+#finalize-sale {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#finalize-sale:hover {
+    background-color: #218838;
+}

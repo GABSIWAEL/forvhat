@@ -1,0 +1,22 @@
+<div class="ReportsByDates">
+    <section class="ReportsByDatesSection1">
+        <h2>CHOOSE HOW YOU WANT TO DISPLAY YOUR REPORTS</h2>
+        <div class="buttonscontainer">
+            <button onclick="fetchReport('shiftly')">SHIFTLY</button>
+            <button onclick="fetchReport('daily')">DAILY</button>
+            <button onclick="fetchReport('weekly')">WEEKLY</button>
+            <button onclick="fetchReport('halfmonth')">HALF MONTH</button>
+            <button onclick="fetchReport('monthly')">MONTHLY</button>
+            <button onclick="fetchReport('trimestry')">TRIMESTER</button>
+            <button onclick="fetchReport('semestry')">SEMESTER</button>
+            <button onclick="fetchReport('yearly')">YEARLY</button>
+        </div>
+    </section>
+    <section class="ReportTable">
+        <table id="reportTable">
+            <!-- Table content will be dynamically inserted here -->
+        </table>
+    </section>
+</div>
+
+<script src="reports.js"></script>

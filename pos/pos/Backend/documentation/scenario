@@ -1,0 +1,106 @@
+Scenario: A Day at the Bookstore
+Adding Products to the Inventory
+
+The bookstore manager adds three new products to the inventory:
+"Book A" priced at $10.00 with 50 units in stock.
+"Book B" priced at $15.00 with 30 units in stock.
+"Book C" priced at $20.00 with 20 units in stock.
+javascript
+Copier le code
+const Product = require('./models/Product');
+
+async function addProducts() {
+    await Product.create({ name: 'Book A', price: 10.00, stock: 50, description: 'A fascinating novel.' });
+    await Product.create({ name: 'Book B', price: 15.00, stock: 30, description: 'A thrilling mystery.' });
+    await Product.create({ name: 'Book C', price: 20.00, stock: 20, description: 'A comprehensive guide.' });
+}
+
+addProducts();
+Customer Makes a Purchase
+
+A customer named "John Doe" purchases 2 copies of "Book A" and 1 copy of "Book C".
+javascript
+Copier le code
+const Customer = require('./models/Customer');
+const Sale = require('./models/Sale');
+const { Facture, FactureProduct } = require('./models/Facture');
+const Product = require('./models/Product');
+
+async function processSale() {
+    // Step 1: Create a customer
+    const customer = await Customer.create({ name: 'John Doe', phone: '123-456-7890', address: '123 Elm St' });
+
+    // Step 2: Create a sale record
+    const sale = await Sale.create({ customerId: customer.id, totalAmount: 40.00 }); // Total = $20 (Book A) + $20 (Book C)
+
+    // Step 3: Create a facture (invoice) associated with the sale
+    const facture = await Facture.create({ saleId: sale.id, totalCost: 40.00 });
+
+    // Step 4: Add products to the facture
+    const bookA = await Product.findOne({ where: { name: 'Book A' } });
+    const bookC = await Product.findOne({ where: { name: 'Book C' } });
+
+        await FactureProduct.create({ factureId: facture.id, productId: bookA.id, quantity: 2, totalCost: 20.00 });
+        await FactureProduct.create({ factureId: facture.id, productId: bookC.id, quantity: 1, totalCost: 20.00 });
+
+    // Update the stock
+    bookA.stock -= 2;
+    bookC.stock -= 1;
+    await bookA.save();
+    await bookC.save();
+}
+
+processSale();
+Generating a Daily Report
+
+At the end of the day, the manager wants to generate a report showing total sales, purchases from suppliers, and profit for the day.
+javascript
+Copier le code
+const Report = require('./models/Report');
+const Sale = require('./models/Sale');
+const FactureProduct = require('./models/FactureProduct');
+const Supplier = require('./models/Supplier');
+const Product = require('./models/Product');
+const { Op } = require('sequelize');
+
+async function generateDailyReport() {
+    // Assume the report is for today's date
+    const startDate = new Date();
+    startDate.setHours(0, 0, 0, 0);
+    const endDate = new Date();
+    endDate.setHours(23, 59, 59, 999);
+
+    // Calculate total sales
+    const totalSales = await Sale.sum('totalAmount', {
+        where: {
+            saleDate: {
+                [Op.between]: [startDate, endDate]
+            }
+        }
+    });
+
+    // Calculate total purchases (in this simple scenario, let's assume we had no new purchases today)
+    const totalPurchases = 0.00;
+
+    // Calculate profit (for simplicity, profit is total sales minus total purchases)
+    const profit = totalSales - totalPurchases;
+
+    // Create the report
+    const report = await Report.create({
+        reportType: 'daily',
+        startDate,
+        endDate,
+        totalSales,
+        totalPurchases,
+        profit,
+    });
+
+    console.log('Daily Report:', report);
+}
+
+generateDailyReport();
+Summary of the Workflow
+Inventory Management: Products are added to the inventory.
+Sales Process: A customer purchases products, which are recorded in the Sale, Facture, and FactureProduct models. The inventory is updated accordingly.
+Reporting: At the end of the day, a report is generated showing total sales, purchases, and profit.
+This simple scenario demonstrates the core functionality of your POS system, including inventory management, sales tracking, invoicing, and reporting. You can expand this with additional features such as more complex reporting, user roles, and supplier management.

@@ -1,0 +1,33 @@
+.ReportsByDatesSection1{
+    background-color: #f0f5f9;
+    border: 1px solid #d1e1e8;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.buttonscontainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Spacing between buttons */
+    justify-content: center; /* Center align buttons */
+    margin-top: 20px; /* Add space above the buttons */
+}
+
+.buttonscontainer button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside the buttons */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Display buttons inline */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.buttonscontainer button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

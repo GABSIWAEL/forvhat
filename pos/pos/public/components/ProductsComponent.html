@@ -1,0 +1,67 @@
+<script src="products.js"></script>
+<style>h2{
+    text-align: center;
+    margin-bottom:4%;
+    margin-top: 4%;
+}</style>
+<h2> Welcome ADMIN to your Products Section</h2>
+
+
+<div class="grid">
+    <section id="CustCreate"><h2> Most selling Product</h2>
+    </section>
+    <section id="TopCust"><h2> product in stocks  </h2></section>
+    <section id="VIPCust"><h2> Products Not Selled For a Month </h2></section>
+    <section id="other"><h2>  </h2></section>
+</div>
+<div class="grid-container">
+    <div id="product-section">
+        <h1 style="text-align: center">Add Here A New Product</h1>
+        <form id="product-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="marque" placeholder="Marque" required>
+            <input type="text" id="price" placeholder="Price" required>
+            <input type="text" id="quantity" placeholder="Quantity" required>
+
+            <select id="supplier-select" required>
+                <option value="" disabled selected>Select Supplier</option>
+                <!-- Supplier options will be populated by JavaScript -->
+            </select>
+
+            <input type="text" id="priceOfSupplier" placeholder="Price of Supplier" required>
+            <button type="submit">Add Product</button>
+        </form>
+        <section class="dashboard-section1" id="timing"></section>
+    </div>
+
+
+
+<div id="product-section1">
+    <h1 style="text-align: center ">Product List</h1>
+    <section class="dashboard-section1">
+
+
+        <div class="containersearch">
+
+        <form role="search" method="get" class="search-form form" action="">
+            <label>
+                <span class="screen-reader-text">Search for...</span>
+                <input type="search" class="search-field" placeholder="Type something..." value="" name="s" title="" />
+            </label>
+            <input type="submit" class="search-submit button" value="&#xf002" />
+<!--            <button  type="submit" style=" margin: 10px ; cursor: pointer ;background: #d4b743;color: #292826;outline: 0;"  ><a>Get Pdf</a></button>-->
+
+
+        </form>
+        </div>
+        <div id="product-list"></div>
+
+
+    </section>
+</div>
+</div>
+
+
+<!-- Ensure script is placed just before the closing body tag -->
+
+

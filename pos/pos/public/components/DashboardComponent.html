@@ -1,0 +1,58 @@
+<div class="dashboard-Time">
+    <section class="dashboard-section1" id="timing">
+        <h2>Events Calendar</h2>
+        <div class="clock">
+            <div class="hand hours"></div>
+            <div class="hand minutes"></div>
+            <div class="hand seconds"></div>
+            <div class="point"></div>
+            <div class="marker">
+                <span class="marker__1"></span>
+                <span class="marker__2"></span>
+                <span class="marker__3"></span>
+                <span class="marker__4"></span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="dashboard-container">
+    <section class="dashboard-section" id="sales">
+        <h2>SALES</h2>
+        <p id="sales-value">0</p>
+    </section>
+    <section class="dashboard-section" id="products">
+        <h2>PRODUCTS</h2>
+        <p id="products-value">0</p>
+    </section>
+    <section class="dashboard-section" id="revenue">
+        <h2>REVENUE</h2>
+        <p id="revenue-value">0</p>
+    </section>
+    <section class="dashboard-section" id="profit">
+        <h2>PROFIT</h2>
+        <p id="profit-value">0</p>
+    </section>
+    <section class="dashboard-section" id="paid">
+        <h2>PAID</h2>
+        <p id="paid-value">0</p>
+    </section>
+    <section class="dashboard-section" id="unpaid">
+        <h2>UNPAID</h2>
+        <p id="unpaid-value">0</p>
+    </section>
+    <section class="dashboard-section" id="half-paid">
+        <h2>HALF-PAID</h2>
+        <p id="half-paid-value">0</p>
+    </section>
+    <section class="dashboard-section" id="settings">
+        <h2>SETTINGS</h2>
+        <button onclick="exportPDF()">Export PDF</button>
+        <button onclick="importData()">Import</button>
+        <button onclick="showStatistics()">Statistics</button>
+        <button onclick="showHistory()">History</button>
+    </section>
+</div>
+
+<script src="dash.js"></script>
+

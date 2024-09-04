@@ -1,0 +1,34 @@
+<div id="sales-operation">
+    <h1>Sales Operation</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Customer Section -->
+    <div id="customer-section">
+        <label for="customer-select">Select Customer:</label>
+        <select id="customer-select"></select>
+        <button id="add-new-customer">Add New Customer</button>
+        <div id="new-customer-fields" style="display:none;">
+            <input type="text" id="customer-name" placeholder="Customer Name">
+            <input type="text" id="customer-phone" placeholder="Customer Phone">
+            <input type="text" id="customer-address" placeholder="Customer Address">
+        </div>
+    </div>
+
+    <!-- Product Search Section -->
+    <div id="product-search-section">
+        <label for="product-search">Search Product:</label>
+        <input type="text" id="product-search" placeholder="Enter product name...">
+        <div id="available-products"></div>
+    </div>
+
+    <!-- Facture Section -->
+    <div id="facture-section">
+        <h2>Facture</h2>
+        <div id="selected-products"></div>
+        <p>Total Amount: $<span id="total-amount">0.00</span></p>
+        <button id="finalize-sale">Finalize Sale</button>
+    </div>
+</div>
+
+<script src="sales.js"></script>
+<link rel="stylesheet" href="sales.css">
